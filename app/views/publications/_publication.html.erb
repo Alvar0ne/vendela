@@ -1,13 +1,16 @@
 <div class='col-sm-6 col-lg-4'>
   <div class="card">
-    <div class="card-topper" ><%= image_tag publication.image.url(:medium)%></div>
+    <div class="card-topper" ><%= link_to (image_tag publication.image.url(:medium)), publication%></div>
+
 
 
     <div class="card-block">
       <h4 class="card-title"><%= link_to publication.titulo, publication %></h4>
+
      
+      <p class="clase1"><%= publication.display_day_published %> </p>
       <p class="card-text"><%= truncate(publication.descripcion, length: 130) %></p>
-      <%= link_to 'Read', publication, class: 'btn btn-primary' %>
+     
     </div>
   </div>
 </div>

@@ -1,24 +1,28 @@
-<div class="collapse" id="exCollapsingNavbar">
-  <div class="collapse-bg p-a-1">
-    <div class="card">
-      <ul class="list-group list-group-flush">
-       
-       
-        </ul>
-    </div>
-  </div>
-</div>
-
-<nav class="navbar navbar-light bg-faded">
-  <div class='container'>
-    <a class='navbar-brand' href='/'>
-      Vende<span class='light'>la</span>
-    </a>
-    <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
-      &#9776;
-    </button>
- 
-      
-    
-  </div>
-</nav>
+<div class="navigation">
+        <div class="container">
+          <div class="agileits-logo">
+            <h1><a href="index.html">Vendela <span class="w3agile">El mejor sitio para vender</span></a></h1>
+          </div>
+          <div class="navigation-right">
+            <span class="menu"><img src="images/menu.png" alt=" " /></span>
+            <nav class="link-effect-3" id="link-effect-3">
+              <ul class="nav1 nav">
+                <li class="active"><a data-hover="Home" href="index.html">Home</a></li>
+                <li><a href="#about" class="scroll" data-hover="About">Nosotros</a></li>
+                <li><a href="#agents" class="scroll" data-hover="Agents">Contacto</a></li> 
+        
+              </ul>
+            </nav>
+              <!-- script-for-menu -->
+              <script>
+                 $( "span.menu" ).click(function() {
+                 $( "ul.nav1" ).slideToggle( 300, function() {
+                 // Animation complete.
+                  });
+                 });
+              </script>
+              <!-- //script-for-menu -->
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
