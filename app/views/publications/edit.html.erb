@@ -1,0 +1,10 @@
+<% provide(:page_title, "Edit #{@publication.titulo}") %>
+<% provide(:blog_active, 'active') %>
+
+
+<h1>Editing Publication</h1>
+
+<%= render 'form', publication: @publication %>
+
+<%= link_to 'Show', @publication %> |
+<%= link_to 'Back', publications_path %>

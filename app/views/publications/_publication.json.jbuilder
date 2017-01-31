@@ -1,0 +1,2 @@
+json.extract! publication, :id, :titulo, :region, :comuna, :precio, :tipo, :superficie, :dormitorio, :baño, :estacionamiento, :descripcion, :slug, :created_at, :updated_at
+json.url publication_url(publication, format: :json)

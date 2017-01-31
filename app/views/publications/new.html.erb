@@ -1,0 +1,8 @@
+<% provide(:page_title,'Nueva Publicacion') %>
+<% provide(:blog_active, 'active') %>
+
+<div class="container center_div">
+<%= render 'form', publication: @publication %>
+</div>
+
+<%= link_to 'Back', publications_path %>
