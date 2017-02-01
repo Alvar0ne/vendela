@@ -28,30 +28,57 @@
               <%= f.label :image %>
               <%= f.file_field :image %>
             </div>
-          <div class="form-group">
-             <%= f.text_field :region ,class: 'form-control' , placeholder: 'Region'  %>
+          <div class="form-group ">
+             <%= f.label :region, "Region" %><br />
+    
+    
+      <%= f.select(:region, options_for_select([['Metropolitana', 'Metropolitana'] ]), ) %>
+
           </div>
-          <div class="form-group">
-            <%= f.text_field :comuna ,class: 'form-control' , placeholder: 'Comuna'  %>
+
+          <div class="form-group ">
+               <%= f.label :comuna, "Comuna" %><br />
+    
+    
+      <%= f.select(:comuna, options_for_select([['Macul', 'Macul'], ['San Bernardo', 'San Bernardo'],['Nuñoa', 'Nuñoa']]), ) %>
+
+
+      </div>
+
+
+
+      <div class="form-group ">
+             
+    <%= f.label :tipo, "Tipo Vivienda" %><br />
+    
+    
+      <%= f.select(:tipo, options_for_select([['Casa', 'Casa'], ['Departamento', 'Departamento'],['Parcela', 'Parcela']]), ) %>
+
+
+           
+          
+
+
           </div>
-          <div class="form-group">
+          <div class="form-group col-md-5 ">
            <%= f.text_field :precio ,class: 'form-control' , placeholder: 'Precio'  %> 
           </div>
 
-          <div class="form-group">
-           <%= f.text_field :tipo ,class: 'form-control' , placeholder: 'Tipo Vivienda'  %> 
+          
+          <div class="form-group col-md-5 ">
+           <%= f.text_field :superficie ,class: 'form-control' , placeholder: 'Superficie' + ' Mt2'%> 
+          </div>
+          <div class="form-group col-md-5">
+       <%= f.label :dormitorio, "Dormitorios" %><br />
+      <%= f.select(:dormitorio, options_for_select([['1 dormitorio', '1'], ['2 dormitorios', '2'],['3 dormitorios', '3'],['4 o mas dormitorios', '4']]), ) %>
+          </div>
+          <div class="form-group col-md-5">
+           <%= f.label :baño, "Dormitorios" %><br />
+           <%= f.select(:baño, options_for_select([['1 baño', '1 baño'], ['2 baños', '2'],['3 baños', '3'],['4 o mas baños', '4']]), ) %>
           </div>
           <div class="form-group">
-           <%= f.text_field :superficie ,class: 'form-control' , placeholder: 'Superficie'  %> 
-          </div>
-          <div class="form-group">
-           <%= f.text_field :dormitorio ,class: 'form-control' , placeholder: 'Dormitorios'  %> 
-          </div>
-          <div class="form-group">
-           <%= f.text_field :baño ,class: 'form-control' , placeholder: 'Baños'  %> 
-          </div>
-          <div class="form-group">
-           <%= f.text_field :estacionamiento ,class: 'form-control' , placeholder: 'Estacionamientos'  %> 
+          <%= f.label :estacionamiento, "Estacionamiento" %><br />
+           <%= f.select(:estacionamiento, options_for_select([['1 estacionamiento', '1'], ['2 estacionamientos', '2'],['3 o mas estacionamientos', '3'],['No tiene', '0']]), ) %>
           </div>
          
                     <div class="form-group">

@@ -1,4 +1,5 @@
 class PublicationsController < ApplicationController
+  before_action :authenticate_user!, except: [:show , :index]
   before_action :set_publication, only: [:show, :edit, :update, :destroy]
 
   # GET /publications
@@ -24,7 +25,7 @@ class PublicationsController < ApplicationController
   # POST /publications
   # POST /publications.json
   def create
-    @publication = Publication.new(publication_params)
+    @publication = current_user.publications.new(publication_params)
 
     respond_to do |format|
       if @publication.save

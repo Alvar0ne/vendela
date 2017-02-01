@@ -5,63 +5,443 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Titulo:</strong>
-  <%= @publication.titulo %>
-</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>eCommerce Product Detail</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+    <style>
+
+    *{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.well {
+    margin-top:-20px;
+    background-color:#007FBD;
+    border:2px solid #0077B2;
+    text-align:center;
+    cursor:pointer;
+    font-size: 25px;
+    padding: 15px;
+    border-radius: 0px !important;
+}
+
+.well:hover {
+    margin-top:-20px;
+    background-color:#0077B2;
+    border:2px solid #0077B2;
+    text-align:center;
+    cursor:pointer;
+    font-size: 25px;
+    padding: 15px;
+    border-radius: 0px !important;
+    border-bottom : 2px solid rgba(97, 203, 255, 0.65);
+}
 
 
-<%= image_tag @publication.image.url(:medium) %>
 
-<p>
-  <strong>Region:</strong>
-  <%= @publication.region %>
-</p>
 
-<p>
-  <strong>Comuna:</strong>
-  <%= @publication.comuna %>
-</p>
+.bg_blur
+{
+    background-image:url('http://data2.whicdn.com/images/139218968/large.jpg');
+    height: 300px;
+    background-size: cover;
+}
 
-<p>
-  <strong>Precio:</strong>
-  <%= @publication.precio %>
-</p>
+.follow_btn {
+    text-decoration: none;
+    position: absolute;
+    left: 35%;
+    top: 42.5%;
+    width: 35%;
+    height: 15%;
+    background-color: #007FBE;
+    padding: 10px;
+    padding-top: 6px;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    border: 4px solid #007FBE;
+}
 
-<p>
-  <strong>Tipo:</strong>
-  <%= @publication.tipo %>
-</p>
+.follow_btn:hover {
+    text-decoration: none;
+    position: absolute;
+    left: 35%;
+    top: 42.5%;
+    width: 35%;
+    height: 15%;
+    background-color: #007FBE;
+    padding: 10px;
+    padding-top: 6px;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    border: 4px solid rgba(255, 255, 255, 0.8);
+}
 
-<p>
-  <strong>Superficie:</strong>
-  <%= @publication.superficie %>
-</p>
+.header{
+    color : #808080;
+    margin-left:10%;
+    margin-top:70px;
+}
 
-<p>
-  <strong>Dormitorio:</strong>
-  <%= @publication.dormitorio %>
-</p>
+.picture{
+    height:150px;
+    width:150px;
+    position:absolute;
+    top: 75px;
+    left:-75px;
+}
 
-<p>
-  <strong>Baño:</strong>
-  <%= @publication.baño %>
-</p>
+.picture_mob{
+    position: absolute;
+    width: 35%;
+    left: 35%;
+    bottom: 70%;
+}
 
-<p>
-  <strong>Estacionamiento:</strong>
-  <%= @publication.estacionamiento %>
-</p>
+.btn-style{
+    color: #fff;
+    background-color: #007FBE;
+    border-color: #adadad;
+    width: 33.3%;
+}
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @publication.descripcion %>
-</p>
+.btn-style:hover {
+    color: #333;
+    background-color: #3D5DE0;
+    border-color: #adadad;
+    width: 33.3%;
+   
+}
 
-<p>
-  <strong>Slug:</strong>
-  <%= @publication.slug %>
-</p>
+
+@media (max-width: 767px) {
+    .header{
+        text-align : center;
+    }
+    
+    
+    
+    .nav{
+        margin-top : 30px;
+    }
+}
+
+
+
+
+
+
+
+
+    /* ////////////////////////////////// */
+
+    body {
+     font-family: 'open sans';
+     overflow-x: hidden; }
+
+     img {
+      max-width: 100%; }
+
+     .preview {
+       display: -webkit-box;
+       display: -webkit-flex;
+       display: -ms-flexbox;
+       display: flex;
+       -webkit-box-orient: vertical;
+       -webkit-box-direction: normal;
+       -webkit-flex-direction: column;
+       -ms-flex-direction: column;
+          flex-direction: column; }
+     @media screen and (max-width: 5000px) {
+     .preview {
+      margin-bottom: 20px; } }
+
+     .preview-pic {
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+       -ms-flex-positive: 1;
+          flex-grow: 1; }
+
+     .preview-thumbnail.nav-tabs {
+     border: none;
+     margin-top: 15px; }
+     .preview-thumbnail.nav-tabs li {
+     width: 18%;
+     margin-right: 2.5%; }
+     .preview-thumbnail.nav-tabs li img {
+      max-width: 100%;
+      display: block; }
+     .preview-thumbnail.nav-tabs li a {
+      padding: 0;
+      margin: 0; }
+     .preview-thumbnail.nav-tabs li:last-of-type {
+      margin-right: 0; }
+
+     .tab-content {
+     overflow: hidden; }
+     .tab-content img {
+     width: 100%;
+     -webkit-animation-name: opacity;
+            animation-name: opacity;
+     -webkit-animation-duration: .3s;
+            animation-duration: .3s; }
+
+     .card {
+     margin-top: 50px;
+     background: #eee;
+     padding: 3em;
+     line-height: 1.5em; }
+
+     @media screen and (min-width: 5000px) {
+     .wrapper {
+     display: -webkit-box;
+     display: -webkit-flex;
+     display: -ms-flexbox;
+     display: flex; } }
+
+     .details {
+     display: -webkit-box;
+     display: -webkit-flex;
+     display: -ms-flexbox;
+     display: flex;
+     -webkit-box-orient: vertical;
+     -webkit-box-direction: normal;
+     -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+     .colors {
+     -webkit-box-flex: 1;
+     -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1; }
+
+     .product-title, .price, .sizes, .colors {
+     text-transform: UPPERCASE;
+     font-weight: bold; }
+
+     .checked, .price span {
+     color: #ff9f1a; }
+
+     .product-title, .rating, .product-description, .price, .vote, .sizes {
+     margin-bottom: 15px; }
+
+     .product-title {
+      margin-top: 0; }
+
+     .size {
+     margin-right: 10px; }
+     .size:first-of-type {
+      margin-left: 40px; }
+
+     .color {
+   display: inline-block;
+   vertical-align: middle;
+   margin-right: 10px;
+   height: 2em;
+   width: 2em;
+   border-radius: 2px; }
+   .color:first-of-type {
+    margin-left: 20px; }
+
+   .add-to-cart, .like {
+   background: #ff9f1a;
+   padding: 1.2em 1.5em;
+   border: none;
+   text-transform: UPPERCASE;
+   font-weight: bold;
+   color: #fff;
+   -webkit-transition: background .3s ease;
+          transition: background .3s ease; }
+   .add-to-cart:hover, .like:hover {
+    background: #b36800;
+    color: #fff; }
+
+    .not-available {
+   text-align: center;
+   line-height: 2em; }
+   not-available:before {
+    font-family: fontawesome;
+    content: "\f00d";
+    color: #fff; }
+
+    .orange {
+    background: #ff9f1a; }
+
+   .green {
+   background: #85ad00; }
+
+   .blue {
+    background: #0076ad; }
+
+    .tooltip-inner {
+    padding: 1.3em; }
+
+    @-webkit-keyframes opacity {
+   0% {
+    opacity: 0;
+    -webkit-transform: scale(3);
+            transform: scale(3); }
+   100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+   @keyframes opacity {
+   0% {
+    opacity: 0;
+    -webkit-transform: scale(3);
+            transform: scale(3); }
+   100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+    /*# sourceMappingURL=style.css.map */
+
+    </style>
+
+  </head>
+
+
+  <body>
+  
+  <div class="container">
+    <div class="card">
+      <div class="container-fliud">
+        <div class="wrapper row">
+          <div class="preview col-md-6">
+            
+            <div class="preview-pic tab-content">
+              <div class="tab-pane active" id="pic-1"><%= image_tag @publication.image.url(:medium) %></div>
+              <div class="tab-pane" id="pic-2"><%= image_tag @publication.image.url(:medium) %></div>
+              <div class="tab-pane" id="pic-3"><%= image_tag @publication.image.url(:medium) %></div>
+              <div class="tab-pane" id="pic-4"><%= image_tag @publication.image.url(:medium) %></div>
+              <div class="tab-pane" id="pic-5"><%= image_tag @publication.image.url(:medium) %></div>
+            </div>
+            <ul class="preview-thumbnail nav nav-tabs">
+              <li class="active"><a data-target="#pic-1" data-toggle="tab"><%= image_tag @publication.image.url(:thumb) %></a></li>
+              <li><a data-target="#pic-2" data-toggle="tab"><%= image_tag @publication.image.url(:thumb) %></a></li>
+              <li><a data-target="#pic-3" data-toggle="tab"><%= image_tag @publication.image.url(:thumb) %></a></li>
+              <li><a data-target="#pic-4" data-toggle="tab"><%= image_tag @publication.image.url(:thumb) %></a></li>
+              <li><a data-target="#pic-5" data-toggle="tab"><%= image_tag @publication.image.url(:thumb) %></a></li>
+            </ul>
+            
+          </div>
+          <div class="details col-md-6">
+            <h3 class="product-title"><%= @publication.titulo %></h3>
+            <div class="rating">
+              <div class="stars">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+              </div>
+              <span class="review-no">41 reviews</span>
+            </div>
+            <p class="product-description"><%= @publication.descripcion %></p>
+            <h4 class="price">Precio: <span> <%= @publication.precio %>$</span></h4>
+            <p class="vote"><strong><%= @publication.region %></strong> - <%= @publication.comuna %></p>
+
+
+            <h5 class="colors">Tipo:
+              <%= @publication.tipo %>
+        
+            </h5>
+
+            <h5 class="colors">Superficie:
+              <%= @publication.superficie %>
+        
+            </h5>
+
+
+            <h5 class="colors">Dormitorios:
+              <%= @publication.dormitorio %>
+        
+            </h5>
+
+              <h5 class="colors">Baños:
+              <%= @publication.baño %>
+        
+            </h5>
+
+              </h5>
+
+              <h5 class="colors">Estacionamientos:
+              <%= @publication.estacionamiento %>
+        
+            </h5>
+
+
+            
+
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="container" style="margin-top: 20px; margin-bottom: 20px;">
+  <div class="row panel">
+    <div class="col-md-4 bg_blur ">
+          
+    </div>
+        <div class="col-md-8  col-xs-12">
+           <img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="img-thumbnail picture hidden-xs" />
+           <img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="img-thumbnail visible-xs picture_mob" />
+           <div class="header">
+                <h1>Lorem Ipsum</h1>
+                <h4>Web Developer</h4>
+                <span>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</span>
+           </div>
+        </div>
+    </div>   
+    
+  <div class="row nav">    
+        <div class="col-md-4"></div>
+        <div class="col-md-8 col-xs-12" style="margin: 0px;padding: 0px;">
+            <div class="col-md-4 col-xs-4 well"><i class="fa fa-weixin fa-lg"></i> 16</div>
+            <div class="col-md-4 col-xs-4 well"><i class="fa fa-heart-o fa-lg"></i> 14</div>
+            <div class="col-md-4 col-xs-4 well"><i class="fa fa-thumbs-o-up fa-lg"></i> 26</div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
+
 
 <%= link_to 'Edit', edit_publication_path(@publication) %> |
 <%= link_to 'Back', publications_path %>
