@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-config.i18n.fallbacks = [:en]
+
 
 module Vendela
   class Application < Rails::Application
