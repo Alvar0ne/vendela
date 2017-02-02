@@ -9,6 +9,8 @@ get 'welcome/index'
 
 get 'about' => 'pages#about', as: :about
 
+get 'misavisos' => 'pages#misavisos', as: :misavisos
+
     get 'contact' => 'pages#contact', as: :contact
 
 get 'posts' => 'posts#index', as: :posts

@@ -132,6 +132,7 @@ a {
                                 <p class="hidden-xs"><%= truncate(publication.descripcion, length: 130) %></p><span class="fnt-smaller fnt-lighter fnt-arial"><%= publication.display_day_published %></span>
                             </div>
                         </div>
+                        <%= link_to "Eliminar", publication, method: :delete,class:"waves-effect waves-light btn" %>
                     </div>
 
                 </div>

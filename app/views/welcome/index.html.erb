@@ -82,13 +82,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <div class="container">
 
 
-<%if user_signed_in? %>
-
- 
- <h2> Bienvenido <%= current_user.email %> </h2>
-
- <%end%>
-
  
 <% @publications.each do |publication| %>
 

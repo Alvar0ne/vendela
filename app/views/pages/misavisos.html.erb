@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+
+
+
+  	</head>
+
+
+  	<body>
+
+
+    </br>
+</br>
+
+
+<div class="container">
+
+
+<table class="table-bordered" >
+        <thead>
+     
+          <tr>
+              <th data-field="id">Propiedad</th>
+              <th data-field="name">Precio</th>
+              <th data-field="price">Fecha Publicacion</th>
+              <th data-field="price">Administrar</th>
+          </tr>
+        </thead>
+
+
+
+  <% @publications.each do |publication| %>
+
+
+       <tbody>
+          <tr>
+            <td><%= link_to (image_tag publication.image.url(:thumb)), publication %></td>
+            <td><%= publication.precio %></td>
+            <td><%= publication.display_day_published %></td>
+            
+            <td>
+
+           <%= link_to (image_tag("delete.png",size: "30x30")), publication ,method: :delete%>
+           <%= link_to (image_tag("edit.png",size: "30x30")),  edit_publication_path(publication) ,:method => :get%>
+
+
+
+           
+
+
+            </td>
+          </tr>
+
+        </tbody>
+
+
+
+<%end%>
+
+      </table>
+</div>
+
+
+      </body>
+</html>
