@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+
+
+    </head>
+
+    <body>
+
+
+
 <%= form_for publication, html: { multipart: true } do |f| %>
   <% if publication.errors.any? %>
     <div id="error_explanation">
@@ -17,82 +29,150 @@
     <div class="form-area">  
         <form role="form">
         <br style="clear:both">
-                    <h3 style="margin-bottom: 25px; text-align: center;">Nueva Publicacion</h3>
+                    <h3 style="margin-bottom: 25px; text-align: center;"></h3>
             <div class="form-group">
                
-                <%= f.text_field :titulo ,class: 'form-control' , placeholder: 'Titulo'  %>
+                
          
           </div>
-
-             <div class="form-group">
-              <%= f.label :image %>
-              <%= f.file_field :image %>
-            </div>
-          <div class="form-group ">
-             <%= f.label :region, "Region" %><br />
-    
-    
-      <%= f.select(:region, options_for_select([['Metropolitana', 'Metropolitana'] ]), ) %>
-
-          </div>
-
-          <div class="form-group ">
-               <%= f.label :comuna, "Comuna" %><br />
-    
-    
-      <%= f.select(:comuna, options_for_select([['Macul', 'Macul'], ['San Bernardo', 'San Bernardo'],['Nuñoa', 'Nuñoa']]), ) %>
-
-
-      </div>
-
-
-
-      <div class="form-group ">
              
-    <%= f.label :tipo, "Tipo Vivienda" %><br />
-    
-    
-      <%= f.select(:tipo, options_for_select([['Casa', 'Casa'], ['Departamento', 'Departamento'],['Parcela', 'Parcela']]), ) %>
 
-
-           
-          
-
-
-          </div>
-          <div class="form-group col-md-5 ">
-           <%= f.text_field :precio ,class: 'form-control' , placeholder: 'Precio'  %> 
-          </div>
-
-          
-          <div class="form-group col-md-5 ">
-           <%= f.text_field :superficie ,class: 'form-control' , placeholder: 'Superficie' + ' Mt2'%> 
-          </div>
-          <div class="form-group col-md-5">
-       <%= f.label :dormitorio, "Dormitorios" %><br />
-      <%= f.select(:dormitorio, options_for_select([['1 dormitorio', '1'], ['2 dormitorios', '2'],['3 dormitorios', '3'],['4 o mas dormitorios', '4']]), ) %>
-          </div>
-          <div class="form-group col-md-5">
-           <%= f.label :baño, "Dormitorios" %><br />
-           <%= f.select(:baño, options_for_select([['1 baño', '1 baño'], ['2 baños', '2'],['3 baños', '3'],['4 o mas baños', '4']]), ) %>
-          </div>
-          <div class="form-group">
-          <%= f.label :estacionamiento, "Estacionamiento" %><br />
-           <%= f.select(:estacionamiento, options_for_select([['1 estacionamiento', '1'], ['2 estacionamientos', '2'],['3 o mas estacionamientos', '3'],['No tiene', '0']]), ) %>
-          </div>
-         
-                    <div class="form-group">
-              
-                  <%= f.text_area :descripcion ,class: 'form-control' , placeholder: 'Descripcion'  %> 
-
-
-          </div>
-
-        <%= f.submit 'Crear Aviso', class: 'btn btn-primary pull-right' %>
+       
         </form>
     </div>
 </div>
 </div>
 
 
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <form class="form-horizontal">
+            <fieldset>
+                <!-- Form Name -->
+                <legend>Nueva Publicacion</legend>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">Titulo Publicacion</label>
+                    <div class="col-md-5">
+                        <%= f.text_field :titulo ,class: 'form-control' , placeholder: 'Titulo'  %>
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="color">Imagen</label>
+                    <div class="col-md-6">
+                   
+              <%= f.file_field :image %>
+                    </div>
+                </div>
+                <!-- Appended Input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="account">Region</label>
+                    <div class="col-md-4">
+                         <%= f.select(:region, options_for_select([['Metropolitana', 'Metropolitana']]),{} , { 'data-width' => "50%", class: "selectpicker show-tick"} ) %>
+
+                    </div>
+                </div>
+                <!-- Appended Input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="apikey">Comuna</label>
+                    <div class="col-md-3">
+                        <%= f.select(:comuna, options_for_select([['Macul', 'Macul'], ['San Bernardo', 'San Bernardo'],['Nuñoa', 'Nuñoa']]),{} , {class: 'selectpicker' ,data: {"live-search": true}} ) %>
+
+                    </div>
+                </div>
+                <!-- Multiple Checkboxes (inline) -->
+           
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="threshold">Tipo</label>
+                    <div class="col-md-2">
+                        <%= f.select(:tipo, options_for_select([['Casa', 'Casa'], ['Departamento', 'Departamento'],['Parcela', 'Parcela']]),{} , {class: 'selectpicker show-tick'}) %>
+                    </div>
+                </div>
+                <!-- Select Basic -->
+                <div class="form-group">
+
+                    <label class="col-md-4 control-label" for="comparison"> Precio </label>
+                    <div class="col-md-4">
+
+                        <%= f.text_field :precio ,class: 'form-control' , placeholder: 'Precio'  %> 
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="thresholdvalue">Superficie</label>
+                    <div class="col-md-4">
+                        <%= f.text_field :superficie ,class: 'form-control' , placeholder: 'Superficie' + ' Mt2'%> 
+                </div>
+              </div>
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="notifymode">Dormitorios</label>
+                    <div class="col-md-3">
+                         <%= f.select(:dormitorio, options_for_select([['1 dormitorio', '1'], ['2 dormitorios', '2'],['3 dormitorios', '3'],['4 o mas dormitorios', '4']]),{} , {class: 'selectpicker show-tick'} ) %>
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="email">Baños</label>
+                    <div class="col-md-3">
+                         <%= f.select(:baño, options_for_select([['1 baño', '1 baño'], ['2 baños', '2'],['3 baños', '3'],['4 o mas baños', '4']]),{} , {class: 'selectpicker show-tick'} ) %>
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="sms">Estacionamientos</label>
+                    <div class="col-md-3">
+                        <%= f.select(:estacionamiento, options_for_select([['1 estacionamiento', '1'], ['2 estacionamientos', '2'],['3 o mas estacionamientos', '3'],['No tiene', '0']]),{} , {class: 'selectpicker show-tick'} ) %>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="email">Descripcion</label>
+                    <div class="col-md-6">
+                        <%= f.text_area :descripcion ,class: 'form-control' , placeholder: 'Descripcion'  %> 
+                    </div>
+                </div>
+                <!-- Multiple Radios (inline) -->
+                
+                <!-- Multiple Radios (inline) -->
+                
+                <!-- Multiple Checkboxes (inline) -->
+                
+                <!-- Button (Double) -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="submitButton"></label>
+                    <div class="col-md-6">
+                        <%= f.submit 'Crear Aviso', class: 'btn btn-primary pull-right' %>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+  </div>
+</div>
+
+
 <% end %>
+
+
+
+                 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+                 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
+          <script type="text/javascript">
+               $(document).ready(function() {
+               $('.selectpicker').selectpicker();
+              });
+          </script>
+
+
+
+</body>
+
+
+</html>
