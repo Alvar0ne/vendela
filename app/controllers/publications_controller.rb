@@ -1,7 +1,7 @@
 class PublicationsController < ApplicationController
   before_action :authenticate_user!, except: [:show , :index]
   before_action :set_publication, only: [:show, :edit, :update, :destroy]
-
+   before_action :authenticate_admin!, only: [:index]
   # GET /publications
   # GET /publications.json
   def index

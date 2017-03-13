@@ -20,9 +20,11 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'friendly_id', '~> 5.1.0'
 gem 'paperclip'
+gem 'aasm'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

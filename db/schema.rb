@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201050818) do
+ActiveRecord::Schema.define(version: 20170313205428) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -36,13 +36,14 @@ ActiveRecord::Schema.define(version: 20170201050818) do
     t.integer  "estacionamiento"
     t.text     "descripcion"
     t.string   "slug"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "user_id"
+    t.string   "state",              default: "in_draft"
     t.index ["slug"], name: "index_publications_on_slug", unique: true
     t.index ["user_id"], name: "index_publications_on_user_id"
   end
@@ -62,9 +63,9 @@ ActiveRecord::Schema.define(version: 20170201050818) do
     t.integer  "fono"
     t.string   "region"
     t.string   "comuna"
-    t.string   "permission_level"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "permission_level",       default: 1
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

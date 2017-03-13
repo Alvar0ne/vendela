@@ -7,6 +7,9 @@
             <span class="menu"><img src="images/menu.png" alt=" " /></span>
             <nav class="link-effect-3" id="link-effect-3">
 
+
+
+
              <%if user_signed_in? %>
 
 
@@ -16,7 +19,16 @@
 
                 <li class="size-cerrar" ><%= link_to "Cerrar Sesion", destroy_user_session_path , method: :delete %></li> <li class="size-cerrar">| </li>
 
-                <li class="size-cerrar"><%= link_to "Mis Avisos", misavisos_path%></li>
+                <li class="size-cerrar"><%= link_to "Mis Avisos", misavisos_path%></li> <li class="size-cerrar">| </li>
+
+
+                <%if current_user.is_admin? %>
+
+              <li ><%= link_to "PANEL DE CONTROL", root_path %></li>
+
+
+              <%end%>
+
 
               </ul>
 
