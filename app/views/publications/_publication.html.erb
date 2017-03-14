@@ -94,6 +94,17 @@ a {
 
 
 
+<%= search_form_for @q do |f| %>
+
+  # Search if the name field contains...
+  <%= f.label :titulo_cont %>
+  <%= f.search_field :titulo_cont %>
+
+  
+
+  <%= f.submit %>
+<% end %>
+
 
 
       
@@ -140,6 +151,9 @@ a {
             </div><!-- End row -->
         
     </div>
+
+
+    <%= will_paginate @publications %>
 
 
 

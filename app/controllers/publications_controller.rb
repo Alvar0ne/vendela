@@ -1,12 +1,32 @@
 class PublicationsController < ApplicationController
   before_action :authenticate_user!, except: [:show , :index]
-  before_action :set_publication, only: [:show, :edit, :update, :destroy]
-   before_action :authenticate_admin!, only: [:index]
+  before_action :set_publication, only: [:show, :edit, :update, :destroy, :publish]
+  before_action :authenticate_admin!, only: [:publish]
+
   # GET /publications
   # GET /publications.json
   def index
-    @publications = Publication.most_recent
+
+
+  @q = Publication.ransack(params[:q])
+  @publications = @q.result.paginate(page: params[:page],per_page:10).most_recent.published
+  #@q.result.includes(:articles).page(params[:page]).to_a.uniq
+
+  
+ # @publications = Publication.paginate(page: params[:page],per_page:10).most_recent.published
   end
+
+    def indexadmin
+    @publications = Publication.most_recent.in_draft
+
+  end
+
+  def publish
+      @publication.publish!
+      redirect_to @publication
+   end
+
+
 
   # GET /publications/1
   # GET /publications/1.json
@@ -16,6 +36,7 @@ class PublicationsController < ApplicationController
   # GET /publications/new
   def new
     @publication = Publication.new
+
   end
 
   # GET /publications/1/edit
@@ -70,6 +91,6 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params.require(:publication).permit(:titulo, :region, :comuna, :precio, :tipo, :superficie, :dormitorio, :baño, :estacionamiento, :descripcion, :image)
+      params.require(:publication).permit(:titulo, :region, :comuna, :precio, :tipo, :superficie, :dormitorio, :baño, :estacionamiento, :descripcion, :image, :state)
     end
 end

@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
 get 'welcome/index' 
 
+
+
+get "/indexadmin", to: "welcome#indexadmin"
+
 get 'about' => 'pages#about', as: :about
 
 get 'misavisos' => 'pages#misavisos', as: :misavisos
@@ -15,7 +19,12 @@ get 'misavisos' => 'pages#misavisos', as: :misavisos
 
 get 'posts' => 'posts#index', as: :posts
 
-  resources :publications
+resources :publications 
+
+put "/publications/:id/publish", to: "publications#publish"
+
+
+
   
   root to: 'welcome#index' 
 

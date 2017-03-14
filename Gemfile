@@ -10,6 +10,8 @@ gem 'pg' , group: :production
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 
+
+
 gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -20,11 +22,14 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem "will_paginate"
+
 
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'friendly_id', '~> 5.1.0'
 gem 'paperclip'
 gem 'aasm'
+gem 'ransack'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -9,7 +9,7 @@ include AASM
   belongs_to :user
 
 
-  has_attached_file :image, styles: {large: "600x600>", medium: "300x300>" , thumb: "150x150#"}
+  has_attached_file :image, styles: {large: "600x600>", medium: "200x200>" , thumb: "100x100"}
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
 scope :most_recent, -> { order(id: :desc)}
@@ -33,7 +33,7 @@ aasm column: "state" do
 	state :published
 
 	event :publish do
-		transitions from: :draft, to: :published
+		transitions from: :in_draft, to: :published
 	end
 
 	event :unpublish do
