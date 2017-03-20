@@ -5,6 +5,10 @@ include AASM
   friendly_id :titulo, use: :slugged
 
 
+ has_many :publication_attachments
+ accepts_nested_attributes_for :publication_attachments
+
+
 
   belongs_to :user
 

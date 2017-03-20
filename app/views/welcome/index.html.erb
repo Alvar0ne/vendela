@@ -91,7 +91,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 <div class='col-sm-6 col-lg-4'>
   <div class="card">
-    <div class="card-topper" ><%= link_to (image_tag publication.image.url(:medium)), publication ,class: 'img-thumbnail'%></div>
+    <div class="card-topper" ><%= image_tag publication.publication_attachments.first. avatar_url, :style => "width: 350px; height: 350px;"  %></div>
 
 
 

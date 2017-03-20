@@ -17,6 +17,15 @@
 
 </br>
 
+ <div class="col-md-12 well">
+
+    <td><%= link_to "Nueva Publicacion", new_publication_path,class:"btn btn-primary" %></td>
+                      
+
+                    </div>
+
+ 
+
  <% @publications.each do |publication| %>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -26,10 +35,7 @@
             <div class="container">
                 
                 <div class="row">
-                    <div class="col-md-12 well">
-                       <td><%= link_to "Nueva Publicacion", new_publication_path,class:"btn btn-primary" %></td>
-
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -54,7 +60,7 @@
                                         <p><%= publication.display_day_published %></p>
                                     </td>
                                     <td>
-                                         <%= link_to (image_tag publication.image.url(:thumb), size: "100x100"), publication  ,class: 'img-thumbnail'%>
+                                         
                                     </td>
                                     <td>
 

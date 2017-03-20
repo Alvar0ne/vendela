@@ -23,13 +23,12 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 
 gem "will_paginate"
-
-
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'friendly_id', '~> 5.1.0'
 gem 'paperclip'
 gem 'aasm'
 gem 'ransack'
+gem 'carrierwave', '~> 1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

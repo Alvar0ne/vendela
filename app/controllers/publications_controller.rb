@@ -17,7 +17,10 @@ class PublicationsController < ApplicationController
   end
 
     def indexadmin
-    @publications = Publication.most_recent.in_draft
+      @publications = Publication.most_recent.in_draft
+
+
+      
 
   end
 
@@ -31,11 +34,15 @@ class PublicationsController < ApplicationController
   # GET /publications/1
   # GET /publications/1.json
   def show
+
+    @publication_attachments = @publication.publication_attachments.all
+
   end
 
   # GET /publications/new
   def new
     @publication = Publication.new
+    @publication_attachment = @publication.publication_attachments.build
 
   end
 
@@ -50,6 +57,9 @@ class PublicationsController < ApplicationController
 
     respond_to do |format|
       if @publication.save
+         params[:publication_attachments]['avatar'].each do |a|
+         @publication_attachment = @publication.publication_attachments.create!(:avatar => a)
+       end
         format.html { redirect_to @publication, notice: 'Publication was successfully created.' }
         format.json { render :show, status: :created, location: @publication }
       else
@@ -91,6 +101,7 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params.require(:publication).permit(:titulo, :region, :comuna, :precio, :tipo, :superficie, :dormitorio, :baño, :estacionamiento, :descripcion, :image, :state)
+      params.require(:publication).permit(:titulo, :region, :comuna, :precio, :tipo, :superficie, :dormitorio, :baño, :estacionamiento,:avatar, :descripcion, :image, :state , publication_attachments_attributes: [:id, :publication_id, :avatar])
+      
     end
 end
