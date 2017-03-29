@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316030625) do
+ActiveRecord::Schema.define(version: 20170328200546) do
+
+  create_table "comunas", force: :cascade do |t|
+    t.string   "nombre"
+    t.integer  "region_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["region_id"], name: "index_comunas_on_region_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -52,8 +60,18 @@ ActiveRecord::Schema.define(version: 20170316030625) do
     t.integer  "user_id"
     t.string   "state",              default: "in_draft"
     t.string   "avatar"
+    t.integer  "comuna_id"
+    t.integer  "region_id"
+    t.index ["comuna_id"], name: "index_publications_on_comuna_id"
+    t.index ["region_id"], name: "index_publications_on_region_id"
     t.index ["slug"], name: "index_publications_on_slug", unique: true
     t.index ["user_id"], name: "index_publications_on_user_id"
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

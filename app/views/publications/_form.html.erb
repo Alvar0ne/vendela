@@ -19,6 +19,9 @@
        </br>
    </br>
 
+
+ 
+
              
 <%= form_for publication, html: { multipart: true } do |f| %>
   <% if publication.errors.any? %>
@@ -82,6 +85,7 @@
      <% end %>
                
                </div>
+             </div>
 
 
 
@@ -89,13 +93,13 @@
 
                 </br>
 
-                 
 
-             
+
               
 
 
-
+    
+    
 
 
 
@@ -104,28 +108,34 @@
 
               
                 <div class="col-md-3">
-                    <label>Region &nbsp;</label>
-                
-                         <%= f.select(:region, options_for_select([['Metropolitana', 'Metropolitana']]),{} , { 'data-width' => "50%", class: "selectpicker show-tick"} ) %>
-
+                       <%= f.label :region_id, "Region" %><br />
+                       
+          
+                   <%= f.collection_select :region_id, Region.order(:nombre), :id, :nombre, include_blank: true ,class: "form-control"%>
                 
                 </div>
 
 
-          
+           </div>
+
+           </br>
+
+           <div class="row">
 
 
            
                 <div class="col-xs-3">
-                    <label >Comuna &nbsp; </label>
-                    
-                        <%= f.select(:comuna, options_for_select([['Macul', 'Macul'], ['San Bernardo', 'San Bernardo'],['Nuñoa', 'Nuñoa']]),{} , {class: 'selectpicker' ,data: {"live-search": true}} ) %>
+                    <%= f.label :comuna_id, "Comuna" %><br />
+          
+           <%= f.grouped_collection_select :comuna_id, Region.order(:nombre), :comunas , :nombre ,:id, :nombre, include_blank: true ,class: "selectpicker show-tick"  %>
 
                    
                 </div>
            
                
          </div>
+
+         </br>
 
 
                      

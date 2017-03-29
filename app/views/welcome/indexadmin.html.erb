@@ -781,10 +781,12 @@ header {
 
                             <div class="col-md-3 col-sm-5">
 
-                                
+                                <% unless publication.publication_attachments.first.nil? %>
 
-
+                            
                              <%= image_tag publication.publication_attachments.first. avatar_url, :style => "width: 150px; height: 150px;"  %>
+
+                             <%end%>
 
 
                             </div>
@@ -805,7 +807,9 @@ header {
                             </br>
 
 
-                                   <%= link_to "Publicar","/publications/#{publication.id}/publish" , method: :put ,  class: 'btn btn-primary pull-right col-md-6' %>
+                     
+
+                                   <%= button_to "Publicar", publish_publication_path(publication), method: :put ,  class: 'btn btn-primary pull-right col-md-6'%>
 
                                    
 

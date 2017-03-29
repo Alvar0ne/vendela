@@ -29,6 +29,11 @@ gem 'paperclip'
 gem 'aasm'
 gem 'ransack'
 gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+gem 'jquery-fileupload-rails'
+
+
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

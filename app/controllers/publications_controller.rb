@@ -36,13 +36,16 @@ class PublicationsController < ApplicationController
   def show
 
     @publication_attachments = @publication.publication_attachments.all
+    
 
   end
+
 
   # GET /publications/new
   def new
     @publication = Publication.new
     @publication_attachment = @publication.publication_attachments.build
+   
 
   end
 
@@ -93,6 +96,8 @@ class PublicationsController < ApplicationController
     end
   end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_publication
@@ -101,7 +106,7 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params.require(:publication).permit(:titulo, :region, :comuna, :precio, :tipo, :superficie, :dormitorio, :baño, :estacionamiento,:avatar, :descripcion, :image, :state , publication_attachments_attributes: [:id, :publication_id, :avatar])
+      params.require(:publication).permit(:titulo, :region_id , :comuna_id,:region,:comuna, :precio, :tipo, :superficie, :dormitorio, :baño, :estacionamiento,:avatar, :descripcion, :image, :state , publication_attachments_attributes: [:id, :publication_id, :avatar])
       
     end
 end

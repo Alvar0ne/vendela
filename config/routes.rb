@@ -20,14 +20,18 @@ get 'misavisos' => 'pages#misavisos', as: :misavisos
 
 get 'posts' => 'posts#index', as: :posts
 
-resources :publications 
+resources :publications do
 
-put "/publications/:id/publish", to: "publications#publish"
+put 'publish', on: :member
 
+
+
+
+end
 
 
   
-  root to: 'welcome#index' 
+ root to: 'welcome#index' 
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

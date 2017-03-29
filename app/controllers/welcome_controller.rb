@@ -4,9 +4,8 @@ before_action :authenticate_admin! , only: [:indexadmin]
 
 
   def index
-
   	
-@publications = Publication.all
+    @publications = Publication.all
   	
   end
 
@@ -17,6 +16,8 @@ before_action :authenticate_admin! , only: [:indexadmin]
 
 
   end
+
+  
 
 
 
