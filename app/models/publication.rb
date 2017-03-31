@@ -15,6 +15,23 @@ include AASM
   belongs_to :user
 
 
+  validates :titulo , :presence => {:message => "es requerido"}
+  validates :precio , :presence => {:message => "es requerido"}
+  validates :region , :presence => {:message => "es requerido"}
+  validates :comuna , :presence => {:message => "es requerido"}
+  validates :tipo , :presence => {:message => "es requerido"}
+  validates :superficie , :presence => {:message => "es requerido"}
+  validates :dormitorio , :presence => {:message => "es requerido"}
+  validates :baño , :presence => {:message => "es requerido"}
+  validates :descripcion , :presence => {:message => "es requerido"}
+  
+
+
+
+
+
+
+
   has_attached_file :image, styles: {large: "600x600>", medium: "200x200>" , thumb: "100x100"}
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 

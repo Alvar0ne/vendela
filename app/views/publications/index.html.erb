@@ -8,6 +8,16 @@
 
   	<style>
 
+
+    body
+        {
+            background: url('http://hdwallpaperbackgrounds.net/wp-content/uploads/2016/07/white-background-9.jpg') fixed;
+            background-size: cover;
+            padding: 15px;
+            margin: 0;
+        }  
+
+
   	/**** BASE ****/
 body {
     color: #888;   
@@ -184,6 +194,8 @@ a {
                 
          <%= f.select(:region_cont, options_for_select([['Metropolitana', 'Metropolitana']]),{} , { 'data-width' => "50%", class: "selectpicker show-tick"} ) %>
 
+         
+
 
 
           </div>
@@ -268,9 +280,9 @@ a {
                             </br>
                             </br>
 
-                            <%= publication.region %>
+                            <%= publication.region.nombre %>
                              </br>
-                             <%= publication.comuna %>
+                             <%= publication.comuna.nombre %>
                               </br>
                               </br>
                               </br>
@@ -297,7 +309,7 @@ a {
                          </br>
                             Estacionamientos : <%= publication.estacionamiento %>
 
-                            <td><%= link_to 'Eliminar', publication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                            <td><%= button_to 'Eliminar', publication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
                         
 

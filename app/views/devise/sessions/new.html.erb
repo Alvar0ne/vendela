@@ -10,7 +10,7 @@
 {
     background: url('http://chltvl.com/bfi_thumb/Santiago_atardecer_laguna-mqyv4r5jzu705w8irr15bfk5uit27wg3trlvrkatv4.jpg') fixed;
     background-size: cover;
-    padding: 0;
+    padding: 15px;
     margin: 0;
 }
 
@@ -236,7 +236,7 @@ form.login a:hover
 
 
 
-
+           
 
 
 
@@ -245,21 +245,17 @@ form.login a:hover
     <div class="row">
 
         <div class="col-md-12">
-            <div class="pr-wrap">
-                <div class="pass-reset">
-                    <label>
-                        Enter the email you signed up with</label>
-                    <input type="email" placeholder="Email" />
-                    <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" /> 
-                </div>
-            </div>
+            <%= devise_error_messages! %>
             <div class="wrap">
+
 
                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                 <p class="form-title">
                     Inicio Sesion</p>
 
                 <form class="login">
+
+
                 
 
 
@@ -271,7 +267,7 @@ form.login a:hover
 
 
 
-
+ 
 
                  <div class="container">
 
@@ -296,6 +292,8 @@ form.login a:hover
                         <div class="col-md-6 forgot-pass-content">
 
                           <% end %>
+
+
 
                           <div class="labelblanco">
 

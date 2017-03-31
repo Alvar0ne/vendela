@@ -5,7 +5,7 @@ before_action :authenticate_admin! , only: [:indexadmin]
 
   def index
   	
-    @publications = Publication.all
+    @publications = Publication.all.most_recent.published
   	
   end
 
