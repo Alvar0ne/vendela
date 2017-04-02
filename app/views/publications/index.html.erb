@@ -6,7 +6,7 @@
   <head>
 
 
-  	<style>
+    <style>
 
 
     body
@@ -18,7 +18,7 @@
         }  
 
 
-  	/**** BASE ****/
+    /**** BASE ****/
 body {
     color: #888;   
 }
@@ -40,29 +40,14 @@ a {
     background: #ffffff none repeat scroll 0 0;
     border: 1px solid #d4d9e3;
     display: inline-block;
-    padding: 15px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-bottom: 1px;
     width: 100%;
 }
-.sales button {
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-    border: 1px solid #dadee7;
-    border-radius: 100px;
-    font-size: 15px;
-    letter-spacing: 0.5px;
-    padding-right: 32px;
-    color: #787878;
-}
 
-.sales button::before {
-    content: "";
-    font-family: FontAwesome;
-    position: absolute;
-    right: 12px;
-    top: 11px;
-}
-.sales  .btn-group {
-    float: right;
-}
+
+
 .sales h2 {
     color: #8492af;
     float: left;
@@ -164,21 +149,37 @@ a {
     }
 }
 
-  	</style>
-
-  	</head>
 
 
-  	<body>
+.negrit{
+  font-weight:black;
+  color:black !important;
+  opacity:0.8;
+}
+
+.rojito{
+  font-weight:black;
+  color:red !important;
+  opacity:0.8;
+}
+
+
+
+    </style>
+
+    </head>
+
+
+    <body>
 
 
 <div class="col-md-3 ">
 
 <%= search_form_for @q do |f| %>
 
-  		<div class="container">
-	<div class="row">
-		<div class="col-lg-3 col-md-6 col-md-offset-3 col-lg-offset-0">
+      <div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-md-6 col-md-offset-3 col-lg-offset-0">
       <div class="well">
       <h3 align="center">Buscador</h3>
         <form class="form-horizontal">
@@ -189,7 +190,7 @@ a {
             
           <div class="form-group">
 
-          	<label>Region</label>
+            <label>Region</label>
           </br>
                 
          <%= f.select(:region_cont, options_for_select([['Metropolitana', 'Metropolitana']]),{} , { 'data-width' => "50%", class: "selectpicker show-tick"} ) %>
@@ -206,7 +207,7 @@ a {
           </div>
           <div class="form-group">
 
-          	  <label>Tipo &nbsp;</label>
+              <label>Tipo &nbsp;</label>
                    
             <%= f.select(:tipo_cont, options_for_select([['Casa', 'Casa'], ['Departamento', 'Departamento'],['Parcela', 'Parcela']]),{} , {class: 'selectpicker show-tick'}) %>
             
@@ -222,14 +223,14 @@ a {
 
              <div class="form-group">
 
-             	<label>Baños</label>
+              <label>Baños</label>
                     
                          <%= f.select(:baño, options_for_select([['1 baño', '1 baño'], ['2 baños', '2'],['3 baños', '3'],['4 o mas baños', '4']]),{} , {class: 'selectpicker show-tick'} ) %>
 
              </div>
 
              <div class="form-group">
-             	<label>Estacionamientos</label>
+              <label>Estacionamientos</label>
 
                   
                         <%= f.select(:estacionamiento, options_for_select([['1 estacionamiento', '1'], ['2 estacionamientos', '2'],['3 o mas estacionamientos', '3'],['No tiene', '0']]),{} , {class: 'selectpicker show-tick'} ) %>
@@ -243,7 +244,7 @@ a {
         </form>
       </div>
     </div>
-	</div>
+  </div>
 </div>
 
 
@@ -271,18 +272,18 @@ a {
 
                             <div class="sales">
 
-                            	<div class="col-md-5">
+                              <div class="col-md-5">
 
 
               
-                            	
+                              
                                 <h2> <%= link_to publication.titulo, publication %> </h2>
                             </br>
                             </br>
 
                             <%= publication.region.nombre %>
                              </br>
-                             <%= publication.comuna.nombre %>
+                             <h2 class="negrit"><%= publication.comuna.nombre %></h2>
                               </br>
                               </br>
                               </br>
@@ -299,15 +300,15 @@ a {
 
                             </div>
 
-                            <h2> $ <%= publication.precio %> </h2>
+                            <h2 class="rojito"> <%= number_to_currency(publication.precio,precision: 0,separator:".",delimiter: ".") %> </h2>
                             </br>
                             </br>
 
-                            Dormitorios : <%= publication.dormitorio %>
+                            <strong>Dormitorios :</strong> <%= publication.dormitorio %>
                              </br>
-                             Baños : <%= publication.baño %>
+                             <strong>Baños :</strong> <%= publication.baño %>
                          </br>
-                            Estacionamientos : <%= publication.estacionamiento %>
+                            <strong>Estacionamientos :</strong> <%= publication.estacionamiento %>
 
                             <td><%= button_to 'Eliminar', publication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
