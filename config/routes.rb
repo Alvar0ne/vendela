@@ -15,6 +15,7 @@ get "/indexadmin", to: "welcome#indexadmin"
 get 'about' => 'pages#about', as: :about
 
 get 'misavisos' => 'pages#misavisos', as: :misavisos
+get 'estadis' => 'pages#estadis', as: :estadis
 
     get 'contact' => 'pages#contact', as: :contact
 

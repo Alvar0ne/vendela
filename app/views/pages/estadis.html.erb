@@ -5,8 +5,8 @@
 
 <head>
 
-	<style>
-	/*Main CSS*/
+  <style>
+  /*Main CSS*/
 
 
 
@@ -721,11 +721,11 @@
                   }
                   }
                          
-                  	                                 
+                                                     
                   
                   
 
-                  	</style>                  
+                    </style>                  
                   
                   
                 
@@ -742,12 +742,11 @@
                
                 <div class="navi">
                     <ul>
-                        <li class="active"><span class="hidden-xs hidden-sm"><%= link_to "Avisos Pendientes", indexadmin_path%></span></li>
-
+                        <li ><span class="hidden-xs hidden-sm"><%= link_to "Avisos Pendientes", indexadmin_path%></span></li>
                         
 
-                        <li><span class="hidden-xs hidden-sm"><%= link_to "Estadisticas", estadis_path%></span></li>
-
+                        <li class="active"><span class="hidden-xs hidden-sm"><%= link_to "Estadisticas", estadis_path%></span></li>
+                        
                         <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Workflow</span></a></li>
 
                 
@@ -764,12 +763,12 @@
                 <div class="user-dashboard">
 
 
-                    <h1>Avisos Pendientes</h1>
+                   
 
 
                             
 
-                        	<% @publications.each do |publication| %>
+                        
 
 
                     
@@ -779,46 +778,18 @@
 
 
 
-                            <div class="sales">
-
-                            	<div class="col-md-3 col-sm-5 col-xs-12">
-                            	
-                                <h2> <%= link_to publication.titulo, publication %> </h2>
-                                <%= publication.display_day_published %> 
-
-                            </div>
-
-                            <div class="col-md-3 col-sm-5">
-
-                                <% unless publication.publication_attachments.first.nil? %>
+                           
+                              
 
                             
-                             <%= image_tag publication.publication_attachments.first. avatar_url, :style => "width: 150px; height: 150px;"  %>
 
-                             <%end%>
+                            
 
-
-                            </div>
-
-                            <div class="col-md-3 col-sm-5">
-
-                            </br>
-
-                            <%= truncate(publication.descripcion, length: 130) %>
-
-                        </div>
-
-
-
-                            <div class="col-md-3 col-sm-5 col-xs-12">
-                            </br>
-                            </br>
-                            </br>
 
 
                      
 
-                                   <%= button_to "Publicar", publish_publication_path(publication), method: :put ,  class: 'btn btn-primary pull-right col-md-6'%>
+                                 
 
                                    
 
@@ -835,7 +806,7 @@
                             
                       </div>
 
-                      <%end%>
+                      
 
 
                
