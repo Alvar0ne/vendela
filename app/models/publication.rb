@@ -29,12 +29,6 @@ include AASM
 
 
 
-
-
-
-  has_attached_file :image, styles: {large: "600x600>", medium: "200x200>" , thumb: "100x100"}
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
-
 scope :most_recent, -> { order(id: :desc)}
 
   def should_generate_new_friendly_id?
